@@ -2,7 +2,11 @@
   "use strict";
   
   enyo.depends(
-    "titledmenu.js",
-    "chatbox.js"
+    "chat_message.js",
+    "message_form.js",
+    "chat_window.js",
+    "chat_list_button.js",
+    "chat_client.js",
+    "user_typeahead.js"
   );
 }());
