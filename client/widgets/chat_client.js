@@ -8,19 +8,17 @@ enyo.kind({
     { kind: 'enyo.FittableRows',
       style: 'height: 250px;',
       components: [
-        { kind: 'onyx.Toolbar',
-          name: 'chatList',
-          defaultKind: 'XV.ChatListButton',
-          handlers: {
-            onChatSwitch: 'uncheckButtons'
-          },
-          uncheckButtons: function(inEvent, recipient) {
-            enyo.forEach(this.children, function(child) {
-              if(child.get('recipient') !== recipient) {
-                child.deactivate();
-              }
-            });
-          }
+        {kind: "onyx.Toolbar", classes: "chat-list enyo-stretch", name: "chatList", defaultKind: 'XV.ChatListButton', 
+         handlers: {
+           onChatSwitch: 'uncheckButtons'
+         },
+         uncheckButtons: function(inEvent, recipient) {
+           enyo.forEach(this.children, function(child) {
+             if(child.get('recipient') !== recipient) {
+               child.deactivate();
+             }
+           });
+         }
         },
         { name: 'chatsContainer',
           kind: 'enyo.Panels',

@@ -1,3 +1,3 @@
 enyo.depends(
-  "core.css"
+  "core.less"
 );

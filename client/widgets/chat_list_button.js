@@ -12,14 +12,14 @@ enyo.kind({
   },
   components: [
     { kind: 'onyx.Button',
+      classes: 'button',
       name: 'button',
       ontap: 'activate'
     },
     { kind: 'onyx.Button',
       name: 'close',
-      classes: 'onyx-negative',
+      classes: 'close',
       ontap: 'close',
-      style: 'position: absolute; top: 5px; right: 5px; font-size: 0.5em; height: auto; padding: 1px 3px;',
       components: [
         { kind: 'XV.FontAwesomeIcon',
           icon: 'times'

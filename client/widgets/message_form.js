@@ -1,18 +1,16 @@
 enyo.kind({
   name: 'XV.MessageForm',
   kind: 'enyo.Control',
+  classes: 'chat-form',
   events: {
     onMessageSend: ''
   },
   components: [
     { kind: 'enyo.FittableColumns',
       components: [
-        { kind: 'enyo.Input',
-          name: 'messageInput',
-          fit: true,
-          onkeypress: 'checkForEnter',
-          style: 'height: 34px; font-size: 1.2em'
-        },
+        {kind: "onyx.InputDecorator", fit: true, components: [
+          {kind: "onyx.Input", name: 'messageInput', placeholder: "Type a message...",fit: true, onkeypress: 'checkForEnter'}
+        ]},
         { kind: 'onyx.Button', content: 'Send', ontap: 'sendMessage' }
       ]
     }

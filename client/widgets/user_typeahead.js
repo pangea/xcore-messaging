@@ -1,23 +1,23 @@
 enyo.kind({
   name: 'XV.UserTypeahead',
-  kind: 'enyo.Control',
-  style: 'position: relative; padding: 5px 10px;',
+  kind : "onyx.Toolbar",
+  layoutKind: "FittableHeaderLayout",
+  classes: "white",
   events: {
     onChatCreate: ''
   },
   components: [
-    { content: '@',
-      style: 'position: absolute; top: 10px; left: 15px; color: #d0d0d0; font-size: 1.5em;'
-    },
-    { kind: 'onyx.Input',
-      onkeypress: 'checkForEnter',
-      style: 'box-sizing: border-box; width: 100%; padding: 5px 5px 5px 30px; border-radius: 5px; font-size: 1.2em;' }
+    { kind: "onyx.InputDecorator", fit: true, style: 'min-width: 300px;', components: [
+      { kind: 'onyx.Input', placeholder: "@",
+        onkeypress: 'checkForEnter', style: 'width: 100%;'}
+    ]}
   ],
   checkForEnter: function(inSender, inEvent) {
     if(!inEvent.shiftKey && inEvent.keyIdentifier == 'Enter') {
       this.doChatCreate(inSender.getValue());
       inSender.setValue('');
     }
+    this.resized();
     return false;
   }
 });
