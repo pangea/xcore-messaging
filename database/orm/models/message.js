@@ -1,6 +1,6 @@
 [
   {
-    "context": "message",
+    "context": "xcore-messaging",
     "nameSpace": "XM",
     "type": "MessageUser",
     "table": "msguser",
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "context": "message",
+    "context": "xcore-messaging",
     "nameSpace": "XM",
     "type": "Message",
     "table": "msg",
@@ -54,8 +54,7 @@
         "name": "sender",
         "attr": {
           "type": "String",
-          "column": "msg_username",
-          "isNaturalKey": true
+          "column": "msg_username"
         }
       },
       {

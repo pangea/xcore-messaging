@@ -57,7 +57,7 @@ enyo.kind({
           message: message,
           recipient: this.get('recipient')
         });
-    // newMessage.commit();
+    newMessage.commit();
     this.$.scroller.scrollToBottom();
   }
 });

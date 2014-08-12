@@ -1,15 +1,33 @@
 (function () {
   "use strict";
-  
-  XT.extensions.message.initMessageModel = function () {
-    XM.Message = XM.Document.extend({
-      recordType: "XM.Message",
-      documentKey: "sender", //the natural key
-      idAttribute: "sender" //the natural key
-    });
-    
-    XM.MessageCollection = XM.Collection.extend({
-      model: XM.Message
-    });
-  };
+  var STATES = enyo.States;
+
+  enyo.kind({
+    name: 'XM.Message',
+    kind: 'XM.Model',
+    defaults: {
+      sender: xCore.currentUser().uid
+    },
+    /**
+     * Reimplemented to use dispatcher instead of source. Otherwise, functionally
+     * equivalent to enyo.Model's [commit]{@link enyo.Model#commit}.
+     */
+    commit: function(opts) {
+      var o = opts ? enyo.clone(opts) : {};
+      o.success = enyo.bindSafely(this, 'didCommit', this, opts);
+      o.fail = enyo.bindSafely(this, 'didFail', this, opts);
+      new XM.Dispatch({
+        nameSpace: 'XM',
+        type: 'Messenger',
+        functionName: 'deliver',
+        parameters: [this.get('recipient'), this.get('message')]
+      }, o);
+    }
+  });
+
+  enyo.kind({
+    name: 'XM.MessageCollection',
+    kind: 'XM.Collection',
+    model: 'XM.Message'
+  });
 }());

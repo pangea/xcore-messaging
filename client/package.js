@@ -2,13 +2,10 @@
   "use strict";
 
   enyo.depends(
-    // "en",
     "styles",
     "widgets",
+    "models",
     "core.js"
-    // "models",
-    // "views",
-    // "postbooks.js"
   );
 }());
 

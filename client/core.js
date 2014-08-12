@@ -43,7 +43,7 @@
         createNewChat: function(inEvent, recipient) {
           this.$.client.addChat({
             recipient: recipient,
-            messages: new enyo.Collection(),
+            messages: new XM.MessageCollection(),
             forceOpen: true
           });
         },
