@@ -7,7 +7,7 @@ $$
         recipients = text.match(/@\w+/g);
 
     // No recipients, no action.
-    if(!recipients.length) { return; }
+    if(!recipients || !recipients.length) { return; }
 
     if(DEBUG) {
       XT.debug('recipients (before OLD check)): ', JSON.stringify(recipients));
