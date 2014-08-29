@@ -15,13 +15,11 @@
             orient: 'h',
             classes: 'message-drawer',
             components: [
-              { kind: 'XV.UserTypeahead', name: 'chatCreator' },
-              { kind: 'XV.ChatClient', name: 'client'},
-              // needs abstraction ----------------------
-              { kind: 'onyx.Toolbar',
-                content: 'Inbox'
-              },
-              // ----------------------------------------
+              { kind: 'enyo.FittableRows', style: 'height: 100%', components: [
+                { kind: 'XV.UserTypeahead', name: 'chatCreator', style: 'height: 54px' },
+                { kind: 'XV.ChatClient', name: 'client', style: 'width: 100%'},
+                { kind: 'XV.Inbox', name: 'inbox', fit: true, style: 'width: 100%' }
+              ]},
               {
                 kind: 'XV.FontAwesomeIcon',
                 classes: 'fa message-icon',

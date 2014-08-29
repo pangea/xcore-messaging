@@ -3,7 +3,7 @@ enyo.kind({
   kind: 'enyo.Control',
   classes: 'chat-message',
   published: {
-    message: '',
+    model: '',
     recipient: ''
   },
   components: [
@@ -17,6 +17,20 @@ enyo.kind({
     }
   ],
   bindings: [
-    { from: '.message', to: '.$.text.content' }
+    { from: '.model.text', to: '.$.text.content' },
+    { from: '.model.recipient',
+      to: '.recipient', 
+      transform: function(value) {
+        // Check if the current user sent this message
+        if(value == xCore.currentUser().get('uid')) {
+          this.addClass('recipient');
+        } else {
+          this.addClass('sender');
+        }
+        // Send the value out.  We don't actually need to do
+        // anything to it.
+        return value;
+      } 
+    }
   ]
 });

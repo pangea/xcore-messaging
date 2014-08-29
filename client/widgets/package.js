@@ -7,6 +7,7 @@
     "chat_window.js",
     "chat_list_button.js",
     "chat_client.js",
-    "user_typeahead.js"
+    "user_typeahead.js",
+    "inbox.js"
   );
 }());

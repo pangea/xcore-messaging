@@ -5,6 +5,8 @@
   enyo.kind({
     name: 'XM.Message',
     kind: 'XM.Model',
+    primaryKey: 'id',
+    mergeKeys: ['id'],
     defaults: {
       sender: xCore.currentUser().uid
     },
@@ -20,7 +22,7 @@
         nameSpace: 'XM',
         type: 'Messenger',
         functionName: 'deliver',
-        parameters: [this.get('recipient'), this.get('message')]
+        parameters: [this.get('recipient'), this.get('text')]
       }, o);
     }
   });

@@ -4,9 +4,10 @@ enyo.kind({
   handlers: {
     onChatSwitch: 'switchChat'
   },
+  style: 'height: 250px;',
   components: [
     { kind: 'enyo.FittableRows',
-      style: 'height: 250px;',
+      style: 'height: 100%',
       components: [
         {kind: "onyx.Toolbar", classes: "chat-list enyo-stretch", name: "chatList", defaultKind: 'XV.ChatListButton', 
          handlers: {
