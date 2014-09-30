@@ -1,7 +1,8 @@
 CREATE OR REPLACE FUNCTION comment_at_user_check() RETURNS trigger AS
 $$
   (function() {
-    var text = NEW.comment_text,
+        // Guard against null text
+    var text = NEW.comment_text || '',
         sourceId = NEW.comment_source_id,
         // Grab @ mentions. E.g @chall or @bzettler
         recipients = text.match(/@\w+/g);
